@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="approval_block_action" model="ir.actions.act_window">
+        <field name="name">Approval Block</field>
+        <field name="res_model">approval.block.record</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Let's create one!
+            </p>
+        </field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="approval_block_record_view_form" model="ir.ui.view">
+        <field name="name">Approval Block</field>
+        <field name="model">approval.block.record</field>
+        <field name="arch" type="xml">
+            <form string="Test">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                           <field name="block_message"/>
+                        </group>
+                        <group>
+                             <field name="currency_id" invisible="1"/>
+                             <field name="amount_limit" widget="monetary"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="approval_block_record_view_tree" model="ir.ui.view">
+        <field name="name">Approval Block Records</field>
+        <field name="model">approval.block.record</field>
+        <field name="arch" type="xml">
+            <tree string="cases">
+                <field name="name"/>
+                <field name="amount_limit"/>
+                <field name="block_message"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <menuitem
+            id="approval_block_record_menu"
+            name="Approval Block"
+            action="approval_block_action"
+            sequence="1"/>
+
+</odoo>
